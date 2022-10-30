@@ -1,0 +1,124 @@
+:root{
+    --black-100: #37352F;
+    --black-50: #878682;
+    --black-30: #BDBDBD;
+    --black-10: #E6E6E6;
+
+    --white: #FFFFFF;
+
+    --shadow-ellipse: rgb(189, 189, 189, 10%);
+
+    --primary-color: #FFC107;
+    --primary-color-dark: #FFA000;
+    --primary-color-light: #FFECB3;
+
+    --xl: 20px;
+    --lg: 18px;
+    --md: 16px;
+    --sm: 14px;
+}
+
+*{
+    font-family: sans-serif, Arial, Helvetica;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+h2, 
+h3{
+    font-size: var(--lg);
+}
+
+p, 
+li, 
+a, 
+span{
+    font-size: var(--md);
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+/* nav */
+nav{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: var(--black-100);
+}
+
+nav h3,
+nav h2,
+nav li{
+    color: var(--black-10)
+}
+
+nav h3{
+    margin-bottom: .3rem;
+}
+nav p{
+    color: var(--black-30);
+    margin: 0;
+}
+
+nav ul{
+    width: 100%;
+    flex: 1;
+    position: relative;
+}
+nav a{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--black-50);
+    box-shadow: 0 0 0 4px var(--shadow-ellipse);
+    border-radius: 50%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--black-10);
+    z-index: 1;
+    transition: all 300ms;
+}
+nav li:first-of-type a{
+    z-index: 2;
+}
+nav a.hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+nav #menu:target li a{
+    opacity: 100%;
+    visibility: visible;
+}
+nav #menu:target li:first-of-type a{
+    opacity: 0;
+    visibility: hidden;
+}
+nav #menu:target li:nth-of-type(2) a{
+    transform: translate(-50%, -150%)
+}
+nav #menu:target li:nth-of-type(3) a{
+    transform: translate(50%, -50%);
+}
+nav #menu:target li:nth-of-type(4) a{
+    transform: translate(-50%, 50%);
+}
+nav #menu:target li:nth-of-type(5) a{
+    transform: translate(-150%, -50%);
+}
