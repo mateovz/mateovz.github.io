@@ -1,24 +1,45 @@
-const nav = document.querySelector('nav');
-const menuButtons = nav.querySelectorAll('a.hidden');
+const menuButtons = document.querySelectorAll('nav a.hidden');
 const openNavButton = document.querySelector('#show-nav');
 
 window.addEventListener('load', () => {
-    const hash = window.location.hash;
-    if(hash !== '' && hash !== '#menu'){
-        hiddenNav();
-    }
-})
+    hiddenNav(screen.width);
+});
+
+window.addEventListener('resize', () => {
+    hiddenNav(screen.width);
+});
 
 menuButtons.forEach(button => {
+    const nav = document.querySelector('nav');
     button.addEventListener('click', () => {
-        hiddenNav();
+        hiddenElement(nav);
     })
 });
 
 openNavButton.addEventListener('click', () => {
-    hiddenNav();
+    const nav = document.querySelector('nav');
+    visibleElement(nav);
 });
 
-function hiddenNav(){
-    nav.classList.toggle('hidden');
+function hiddenNav(screen = null){
+    const nav = document.querySelector('nav');
+    const hash = window.location.hash;
+
+    if(
+        (hash !== '' && hash !== '#menu')
+        && screen < 760
+    ){
+        hiddenElement(nav);
+    }else{
+        visibleElement(nav);
+    }
+    
+}
+
+function hiddenElement(element){
+    element.classList.add('hidden');
+}
+
+function visibleElement(element){
+    element.classList.remove('hidden');
 }
