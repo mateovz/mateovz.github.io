@@ -276,15 +276,14 @@ section>div{
 #aboutme ul{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
 }
 #aboutme li{
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 50px;
-    margin: .5rem .3rem;
+    margin: .5rem .5rem;
 }
 #aboutme ul li i::before{
     font-size: 32px;
