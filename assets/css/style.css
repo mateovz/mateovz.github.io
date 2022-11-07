@@ -254,7 +254,7 @@ main p{
 }
 main h2,
 main h3{
-    display: inline-block;
+    align-self: center;
     border-bottom: 1px solid var(--black-30);
 }
 main ul{
