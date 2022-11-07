@@ -1,0 +1,39 @@
+/* nav */
+#nav-mobile{
+    display: none;
+}
+#show-nav{
+    display: none;
+}
+
+#nav-desktop{
+    display: block;
+}
+#nav-desktop ul{
+    display: flex;
+    gap: 1rem;
+}
+#nav-desktop li a{
+    color: var(--black-50);
+    font-size: var(--sm);
+    font-weight: bold;
+    transition: color 300ms;
+}
+#nav-desktop li a:hover,
+#nav-desktop li a:focus{
+    color: var(--primary-color);
+}
+
+/* main */
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+/* sections */
+section{
+    visibility: visible;
+    opacity: 100%;
+    width: 100%;
+    height: initial;
+}
