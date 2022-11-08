@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuButtonsDesktop = document.querySelectorAll('#nav-desktop a');
     const titleButton = document.querySelector('h1');
     const openNavButton = document.querySelector('#show-nav');
-    
+    const habilities = document.querySelectorAll('.habilities .hability');
+
     // carga
     window.addEventListener('load', () => {
         hiddenNav();
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // botones version movil
     menuButtonsMobile.forEach(button => {
         const nav = document.querySelector('#nav-mobile');
-        button.addEventListener('click', (e) => {
+        button.addEventListener('click', () => {
             hiddenElement(nav);
         })
     });
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     });
 
+    // h1 dirige a about me
     titleButton.addEventListener('click', (e) =>{
         scrollToElement(e);
     });
@@ -37,6 +39,16 @@ document.addEventListener('DOMContentLoaded', () => {
     openNavButton.addEventListener('click', () => {
         const nav = document.querySelector('#nav-mobile');
         visibleElement(nav);
+    });
+
+    // mostrar popup cuando se selecciona una habilidad, dando su nombre
+    habilities.forEach(hability => {
+        const name = hability.querySelector('.name');
+        if(name !== null){
+            hability.addEventListener('click', () => {
+                visibleElement(name);
+            });
+        }
     });
     
     // ocultar nav
@@ -59,13 +71,16 @@ document.addEventListener('DOMContentLoaded', () => {
         element.classList.remove('hidden');
     }
 
+    // scroll anulando movimiento brusco del anchor
     function scrollToElement(e){
         e.preventDefault();
         const hash = e.target.getAttribute("href");
         onScrollTo(hash);
     }
 
+    // scroll a el hash dado
     function onScrollTo(hash){
+        // se espera un momento a que cargue la pagina
         setTimeout(() => {
             const element = document.querySelector(hash);
     
@@ -74,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 block: 'start'
             });
         }, 100);
-
+        // se da tiempo al scroll de moverse a su sitio
         setTimeout(() => {
             window.location.hash = hash;
         }, 600);

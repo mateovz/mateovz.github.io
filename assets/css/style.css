@@ -2,9 +2,10 @@
     --black-100: #37352F;
     --black-50: #878682;
     --black-30: #BDBDBD;
-    --black-10: #E6E6E6;
+    --black-20: #E6E6E6;
+    --black-10: #F0F0F0;
 
-    --transparent-black-10: rgb(230, 230, 230, 80%);
+    --transparent-black-10: rgb(240, 240, 240, 80%);
 
     --white: #FFFFFF;
     --blue: #028ECB;
@@ -31,6 +32,7 @@
 
 *{
     font-family: sans-serif, Arial, Helvetica;
+    box-sizing: border-box;
 }
 
 html{
@@ -112,7 +114,6 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-sizing: border-box;
     background-color: var(--transparent-black-10);
     border-bottom: 1px solid var(--primary-color-dark);
     position: sticky;
@@ -148,7 +149,6 @@ header a:focus i{
     justify-content: space-between;
     text-align: center;
     padding: 1rem;
-    box-sizing: border-box;
     background-color: var(--black-100);
     position: fixed;
     top: 0;
@@ -213,16 +213,23 @@ header a:focus i{
     opacity: 100%;
     visibility: visible;
 }
-#nav-mobile #menu #close-menu{
+#close-menu{
     opacity: 0%;
     visibility: hidden;
     transition-property: width, height, box-shadow, opacity, visibility, color;
 }
-#nav-mobile #menu:target #close-menu{
+#close-menu i{
+    color: var(--black-10);
+}
+#menu:target #close-menu{
     transform: scale(50%) translate(-50%, -50%);
     transform-origin: top left;
     opacity: 100%;
     visibility: visible;
+}
+#menu #close-menu:target i,
+#menu #close-menu:focus i{
+    color: var(--primary-color);
 }
 #nav-mobile #menu:target li:first-of-type a:first-of-type{
     opacity: 0%;
@@ -272,7 +279,6 @@ section{
     flex-direction: column;
     visibility: hidden;
     opacity: 0;
-    box-sizing: border-box;
     transition-duration: 800ms;
     transition-property: left, top, transform, opacity, visiblitity;
 }
@@ -307,34 +313,135 @@ section>div{
 #aboutme ul li i::before{
     font-size: 32px;
 }
-#aboutme ul li .fa-php{
-    color: #7377AD;
-}
-#aboutme ul li .fa-laravel{
-    color: #F72C1F;
-}
-#aboutme ul li .icon-mysql{
-    color: #005e86;
-}
-#aboutme ul li .fa-html5{
-    color: #f25320;
-}
-#aboutme ul li .fa-css3-alt{
-    color: #1f8ee7;
-}
-#aboutme ul li .fa-square-js{
-    color: #ead41c;
-}
-#aboutme ul li .fa-git-alt{
-    color: #e94e31;
-}
-#aboutme ul li .fa-docker{
-    color: #2392e6;
-}
 #aboutme ul li span{
     margin-top: .3rem;
     font-size: var(--sm);
     color: var(--black-30);
+}
+
+/* habilities */
+.fa-php{
+    color: #7377AD;
+}
+.fa-laravel{
+    color: #F72C1F;
+}
+.icon-mysql{
+    color: #005e86;
+}
+.fa-html5{
+    color: #f25320;
+}
+.fa-css3-alt{
+    color: #1f8ee7;
+}
+.fa-square-js{
+    color: #ead41c;
+}
+.fa-git-alt{
+    color: #e94e31;
+}
+.fa-docker{
+    color: #2392e6;
+}
+.fa-sass{
+    color: #cf649a;
+}
+.fa-wordpress{
+    color: #23282d;
+}
+
+/* timeline */
+.timeline{
+    width: 100%;
+    padding: 2rem 0;
+    border-left: 3px solid var(--primary-color-dark);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+.timeline .year{
+    font-size: var(--sm);
+    padding: .5rem 1.5rem;
+    background-color: var(--primary-color-dark);
+    color: var(--black-10);
+    display: inline-block;
+    font-weight: bold;
+}
+.timeline .card{
+    width: 100%;
+    position: relative;
+    padding: 1rem;
+    margin-left: 1rem;
+    border-left: 3px solid var(--primary-color-dark);
+    border-radius: 4px;
+    background-color: var(--black-10);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem;
+}
+.timeline .card::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-bottom: 2px solid var(--primary-color-dark);
+    left: -50%;
+    top: 1rem;
+    z-index: -1;
+}
+.timeline .date{
+    color: var(--black-10);
+    font-weight: bold;
+    font-size: var(--sm);
+    background-color: var(--black-30);
+    padding: .3rem 1rem;
+    border-radius: 4px;
+    margin-bottom: .3rem;
+}
+.timeline .title{
+    width: 100%;
+    margin: 0;
+    font-size: var(--md);
+    color: var(--primary-color);
+}
+.timeline .company{
+    font-size: var(--sm);
+    color: var(--black-30);
+}
+.timeline .description{
+    margin: 0;
+    font-size: var(--sm);
+    color: var(--black-100);
+}
+.timeline .habilities{
+    display: flex;
+    align-self: flex-end;
+    gap: .5rem;
+    flex-wrap: wrap;
+    margin-right: 1rem;
+}
+.timeline .hability{
+    font-size: var(--md);
+    position: relative;
+}
+.timeline .hability span{
+    color: var(--black-50);
+    font-size: var(--sm);
+}
+.timeline .hability .name{
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    background-color: var(--primary-color-dark);
+    padding: .1rem .3rem;
+    color: var(--black-10);
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: var(--sm);
+    transition-duration: 400ms;
+    transition-property: opacity, visibility;
 }
 
 /* footer */
