@@ -3,3 +3,13 @@ nav a{
     width: 10rem;
     height: 10rem;
 }
+
+/* sections */
+section{
+    padding: 0 3rem;
+}
+
+/* timeline */
+.timeline .card{
+    max-width: 800px;
+}

@@ -42,3 +42,13 @@ section{
     width: 100%;
     height: initial;
 }
+
+/* timeline */
+.timeline{
+    margin-left: 3rem;
+}
+
+/* modal */
+.modal .container{
+    max-width: 60%;
+}

@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const titleButton = document.querySelector('h1');
     const openNavButton = document.querySelector('#show-nav');
     const habilities = document.querySelectorAll('.habilities .hability');
+    const btnCloseModal = document.querySelector('.modal .close');
+    const openModalExperience = document.getElementById('open-modal-unnion');
 
     // carga
     window.addEventListener('load', () => {
@@ -19,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     body.addEventListener('click', (e) => {
         //oculta popup de habilidades
         hiddePopupHabilities(e.target);
+        //oculta modal
+        closeModal(e.target);
     });
     
     // botones version movil
@@ -56,7 +60,17 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+
+    //cierra modal con boton close
+    btnCloseModal.addEventListener('click', () => {
+        closeModal();
+    });
     
+    openModalExperience.addEventListener('click', () => {
+        const modal = document.querySelector('.modal');
+        visibleElement(modal);
+    });
+
     // ocultar nav
     function hiddenNav(){
         const nav = document.querySelector('#nav-mobile');
@@ -112,5 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 hiddenElement(name);
             }
         });  
+    }
+
+    //cierra modal
+    function closeModal(element = null){
+        const modal = document.querySelector('.modal');
+        const body = modal.querySelector('.body');
+
+        if(element == null ||  element == modal){
+            hiddenElement(modal);
+        }
     }
 });
