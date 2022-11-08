@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const body = document.querySelector('body');
     const menuButtonsMobile = document.querySelectorAll('#nav-mobile a.hidden');
     const menuButtonsDesktop = document.querySelectorAll('#nav-desktop a');
     const titleButton = document.querySelector('h1');
@@ -13,6 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // redimensionar
     window.addEventListener('resize', () => {
         hiddenNav();
+    });
+
+    body.addEventListener('click', (e) => {
+        //oculta popup de habilidades
+        hiddePopupHabilities(e.target);
     });
     
     // botones version movil
@@ -93,5 +99,18 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             window.location.hash = hash;
         }, 600);
+    }
+
+    //oculta los popup de habilidades
+    function hiddePopupHabilities(element){
+        const habilities = document.querySelectorAll('.hability');
+        habilities.forEach(hability => {
+            const icon = hability.querySelector('i');
+            const name = hability.querySelector('.name');
+
+            if(element !== icon && name){
+                hiddenElement(name);
+            }
+        });  
     }
 });

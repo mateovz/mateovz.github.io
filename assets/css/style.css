@@ -370,7 +370,6 @@ section>div{
     font-weight: bold;
 }
 .timeline .card{
-    width: 100%;
     position: relative;
     padding: 1rem;
     margin-left: 1rem;
@@ -432,16 +431,29 @@ section>div{
 }
 .timeline .hability .name{
     position: absolute;
-    bottom: -100%;
-    left: 0;
+    bottom: -120%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: var(--primary-color-dark);
-    padding: .1rem .3rem;
+    padding: .2rem .4rem;
     color: var(--black-10);
     border-radius: 4px;
     font-weight: bold;
     font-size: var(--sm);
     transition-duration: 400ms;
     transition-property: opacity, visibility;
+    z-index: 1;
+}
+.timeline .hability .name::before{
+    content: '';
+    width: 6px;
+    height: 6px;
+    transform: rotate(45deg);
+    background-color: var(--primary-color-dark);
+    position: absolute;
+    left: calc(50% - 3px);
+    top: -3px;
+    z-index: -1;
 }
 
 /* footer */
